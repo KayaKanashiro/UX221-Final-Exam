@@ -10,3 +10,97 @@ Stack trace:
 #5 [internal function]: IC_EPC_Tracking->fatal()
 #6 {main}
   thrown in /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
+[23-Apr-2025 00:28:10 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID
+					 FROM wp_posts 
+					 WHERE 1=1  AND ((wp_posts.post_type = 'al_product' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'future' OR wp_posts.post_status = 'draft' OR wp_posts.post_status = 'pending' 
+OR wp_posts.post_status = 'private')))
+					 
+					 ORDER BY (
+			SELECT GROUP_CONCAT(name ORDER BY name ASC)
+			FROM wp_term_relationships
+			INNER JOIN wp_term_taxonomy USING (term_taxonomy_id)
+			INNER JOIN wp_terms USING (term_id)
+			WHERE wp_posts.ID = object_id
+			AND taxonomy = 'al_product-cat'
+			GROUP BY object_id
+		) ASC
+					 LIMIT 0, 20</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: BEGIN | (no parameters)</li>
+<li>Executing: SELECT   wp_posts.ID
+					 FROM wp_posts 
+					 WHERE 1=1  AND ((wp_posts.post_type = :param0  AND (wp_posts.post_status = :param1  OR wp_posts.post_status = :param2  OR wp_posts.post_status = :param3  OR wp_posts.post_status = :param4  
+OR wp_posts.post_status = :param5 )))
+					 
+					 ORDER BY (
+			SELECT GROUP_CONCAT(name ORDER BY name ASC)
+			FROM wp_term_relationships
+			INNER JOIN wp_term_taxonomy USING (term_taxonomy_id)
+			INNER JOIN wp_terms USING (term_id)
+			WHERE wp_posts.ID = object_id
+			AND taxonomy = :param6 
+			GROUP BY object_id
+		) ASC
+					  | (no parameters)</li>
+<li>Executing: ROLLBACK | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Error occurred at line 4117 in Function <code>handle_error</code>. Error message was: SQLSTATE[HY000]: General error: 1 near "ORDER": syntax error.
+</div>
+<p>Backtrace:</p>
+<pre>#0 /workspaces/UX221-Final-Exam/.wordpress/wp-content/mu-plugins/sqlite-database-integration/wp-includes/sqlite/class-wp-sqlite-db.php(287): WP_SQLite_Translator->get_error_message()
+#1 /workspaces/UX221-Final-Exam/.wordpress/wp-includes/class-wpdb.php(3107): WP_SQLite_DB->query('SELECT SQL_CALC...')
+#2 /workspaces/UX221-Final-Exam/.wordpress/wp-includes/class-wp-query.php(3419): wpdb->get_col('SELECT SQL_CALC...')
+#3 /workspaces/UX221-Final-Exam/.wordpress/wp-includes/class-wp-query.php(3949): WP_Query->get_posts()
+#4 /workspaces/UX221-Final-Exam/.wordpress/wp-includes/class-wp.php(701): WP_Query->query(Array)
+#5 /workspaces/UX221-Final-Exam/.wordpress/wp-includes/class-wp.php(821): WP->query_posts()
+#6 /workspaces/UX221-Final-Exam/.wordpress/wp-includes/functions.php(1342): WP->main(Array)
+#7 /workspaces/UX221-Final-Exam/.wordpress/wp-admin/includes/post.php(1312): wp(Array)
+#8 /workspaces/UX221-Final-Exam/.wordpress/wp-admin/includes/class-wp-posts-list-table.php(165): wp_edit_posts_query()
+#9 /workspaces/UX221-Final-Exam/.wordpress/wp-admin/edit.php(235): WP_Posts_List_Table->prepare_items()
+#10 {main}</pre>
+ for query SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID
+					 FROM wp_posts 
+					 WHERE 1=1  AND ((wp_posts.post_type = 'al_product' AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'future' OR wp_posts.post_status = 'draft' OR wp_posts.post_status = 'pending' 
+OR wp_posts.post_status = 'private')))
+					 
+					 ORDER BY (
+			SELECT GROUP_CONCAT(name ORDER BY name ASC)
+			FROM wp_term_relationships
+			INNER JOIN wp_term_taxonomy USING (term_taxonomy_id)
+			INNER JOIN wp_terms USING (term_id)
+			WHERE wp_posts.ID = object_id
+			AND taxonomy = 'al_product-cat'
+			GROUP BY object_id
+		) ASC
+					 LIMIT 0, 20 made by WP_Posts_List_Table->prepare_items, wp_edit_posts_query, wp, WP->main, WP->query_posts, WP_Query->query, WP_Query->get_posts, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[23-Apr-2025 00:35:52 UTC] PHP Fatal error:  Out of memory (allocated 44040192) (tried to allocate 102400 bytes) in /workspaces/UX221-Final-Exam/.wordpress/wp-includes/class-wp-scripts.php on line 524
+[23-Apr-2025 00:35:52 UTC] PHP Fatal error:  Out of memory (allocated 39845888) (tried to allocate 2097152 bytes) in /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/templates/themes/theme-classic-grid.php on line 101
+[23-Apr-2025 00:35:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function ic_products_count() in /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php:117
+Stack trace:
+#0 /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#1 /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#2 [internal function]: IC_EPC_Tracking->fatal()
+#3 {main}
+  thrown in /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php on line 117
+[23-Apr-2025 00:35:54 UTC] PHP Fatal error:  Out of memory (allocated 35651584) (tried to allocate 2097152 bytes) in /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/templates/themes/theme-classic-grid.php on line 154
+[23-Apr-2025 00:35:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function ic_products_count() in /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php:117
+Stack trace:
+#0 /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#1 /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#2 [internal function]: IC_EPC_Tracking->fatal()
+#3 {main}
+  thrown in /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php on line 117
+[23-Apr-2025 00:35:54 UTC] PHP Fatal error:  Out of memory (allocated 33554432) (tried to allocate 2097152 bytes) in /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/functions/capabilities.php on line 40
+[23-Apr-2025 00:35:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function ic_products_count() in /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php:117
+Stack trace:
+#0 /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#1 /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#2 [internal function]: IC_EPC_Tracking->fatal()
+#3 {main}
+  thrown in /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php on line 117
