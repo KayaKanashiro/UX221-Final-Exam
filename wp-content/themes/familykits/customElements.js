@@ -5,6 +5,3 @@ class CopyrightYear extends HTMLElement{
 }
 
 customElements.define("x-year", CopyrightYear);
-h1{
- color: #d18bbe
-}
