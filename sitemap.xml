@@ -42,12 +42,37 @@
     </url>
     <url>
         <loc>
-            http://localhost:8000/products/sample-product-page/
+            http://localhost:8000/products/the-little-prince/
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://localhost:8000/products/feel-good-cookbook/
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://localhost:8000/products/uno/
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://localhost:8000/products/codenames/
         </loc>
     </url>
     <url>
         <loc>
             http://localhost:8000/category/uncategorized/
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://localhost:8000/products-category/little-library-kit/
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://localhost:8000/products-category/board-games-kit/
         </loc>
     </url>
     <url>
