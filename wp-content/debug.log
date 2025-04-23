@@ -1,1 +1,12 @@
 [22-Apr-2025 23:51:42 UTC] PHP Warning:  Undefined array key "host" in /workspaces/UX221-Final-Exam/.wordpress/wp-includes/pluggable.php on line 1640
+[23-Apr-2025 00:14:19 UTC] PHP Fatal error:  Out of memory (allocated 35651584) (tried to allocate 2097152 bytes) in /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/theme-product_adder_support.php on line 337
+[23-Apr-2025 00:14:19 UTC] PHP Fatal error:  Uncaught Error: Class "ic_catalog_notices" not found in /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php:600
+Stack trace:
+#0 /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php(687): get_multiple_settings()
+#1 /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(126): get_integration_type()
+#2 /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(99): IC_EPC_Tracking->get_integration_type()
+#3 /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(551): IC_EPC_Tracking->setup_data()
+#4 /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/tracking.php(481): IC_EPC_Tracking->send_paused_checkin(Array, true)
+#5 [internal function]: IC_EPC_Tracking->fatal()
+#6 {main}
+  thrown in /workspaces/UX221-Final-Exam/.wordpress/wp-content/plugins/ecommerce-product-catalog/includes/settings/general.php on line 600
